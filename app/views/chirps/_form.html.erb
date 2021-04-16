@@ -12,12 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :text %>
-    <%= form.text_area :text%>
-    
+    <%= form.label "What do you have in your mind?" %>
+    <%= form.text_area :text, size: "70x5" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Chirp!" %>
   </div>
 <% end %>
