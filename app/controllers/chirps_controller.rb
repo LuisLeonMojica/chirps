@@ -32,6 +32,7 @@ class ChirpsController < ApplicationController
 
     respond_to do |format|
       if @chirp.save
+        ChirpPushNotificationJob.perform_later(@chirp)       
         format.html { redirect_to @chirp, notice: "Chirp was successfully created." }
         format.json { render :show, status: :created, location: @chirp }
       else
