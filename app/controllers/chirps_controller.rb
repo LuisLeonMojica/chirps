@@ -3,7 +3,7 @@ class ChirpsController < ApplicationController
 
   # GET /chirps or /chirps.json
   def index
-    @chirps = Chirp.getAllChirpsOrdered
+    @chirps = Chirp.all
   end
 
   # GET /chirps/1 or /chirps/1.json
@@ -21,10 +21,10 @@ class ChirpsController < ApplicationController
 
   # POST /chirps or /chirps.json
   def create
-    @chirp = ChirpService.createChirp(chirp_params)
+    @chirp = Chirp.new(chirp_params)
 
     respond_to do |format|
-      if @chirp.errors.empty?
+      if @chirp.save
         format.html { redirect_to @chirp, notice: "Chirp was successfully created." }
         format.json { render :show, status: :created, location: @chirp }
       else
