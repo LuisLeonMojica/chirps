@@ -10,8 +10,11 @@
   <% @chirps.each do |chirp| %> 
     <li class="list-group-item">
       <div class="row">
-        <div class="col-md-9">
-          <%= chirp.text.upcase %>
+        <div class="col-md-8">
+          <%= chirp.text.upcase %> | ( <%= chirp.upvotes%> upvotes)
+        </div>
+        <div class="col-md-1">
+          <i class="bi-hand-thumbs-up"><%= link_to ' Upvote', upvote_chirp_path(chirp), method: :post %></i>
         </div>
         <div class="col-md-1">
           <i class="bi bi-search"><%= link_to ' Show', chirp %></i>

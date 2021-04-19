@@ -1,9 +1,16 @@
 class ChirpsController < ApplicationController
-  before_action :set_chirp, only: %i[ show edit update destroy ]
+  before_action :set_chirp, only: %i[ show edit update destroy upvote]
+
+  #POST /chirps/:id/upvote 
+  def upvote
+    @chirp.upvote
+    redirect_to chirps_path, notice: "Chirp was successfully upvoted."
+    
+  end
 
   # GET /chirps or /chirps.json
   def index
-    @chirps = Chirp.all
+    @chirps = Chirp.getAllChirpsOrdered
   end
 
   # GET /chirps/1 or /chirps/1.json
