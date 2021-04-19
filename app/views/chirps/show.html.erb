@@ -1,9 +1,12 @@
 <p id="notice"><%= notice %></p>
+<h1>Showing Chirp</h1>
 
-<p>
-  <strong>Text:</strong>
-  <%= @chirp.text %>
-</p>
-
-<%= link_to 'Edit', edit_chirp_path(@chirp) %> |
-<%= link_to 'Back', chirps_path %>
+<div class="card" style="width: 30rem;">  
+  <div class="card-body">
+    <%= image_pack_tag "chirp.png", class: "card-img-top", alt: "Card image cap" %>        
+    <h5 class="card-title"><%= @chirp.text %></h5>    
+    <hr/>
+    <p class="card-text">Created: <%= format_date(@chirp.created_at) %> Updated: <%= format_date(@chirp.updated_at) %> </p>    
+    <%= link_to 'Back', chirps_path %> | <%= link_to 'Edit', edit_chirp_path(@chirp)%>        
+  </div>
+</div>
